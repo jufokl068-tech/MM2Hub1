@@ -67,35 +67,7 @@ local function createButton(name, posY)
 end
 
 -- Özellik Butonları
-local EspBtn = createButton("Sheriff / Murder ESP", 0.17)
-local SpeedBtn = createButton("Hız Hilesi (WalkSpeed)", 0.33)
-local CoinFarmBtn = createButton("Otomatik Coin Toplama", 0.49)
-local GunDropBtn = createButton("Sheriff Silahını Al (Drop)", 0.65)
-local TeleportLobbyBtn = createButton("Lobiye Işınlan", 0.81)
-
--- 1. ESP Özelliği
-EspBtn.MouseButton1Click:Connect(function()
-    for _, p in pairs(Players:GetPlayers()) do
-        if p ~= Player and p.Character then
-            if not p.Character:FindFirstChild("Highlight") then
-                local hl = Instance.new("Highlight")
-                hl.Parent = p.Character
-                hl.Adornee = p.Character
-                hl.FillColor = Color3.fromRGB(255, 0, 0)
-                hl.OutlineColor = Color3.fromRGB(255, 255, 255)
-            end
-        end
-    end
-    EspBtn.Text = "ESP Aktif Edildi!"
-    EspBtn.TextColor3 = Color3.fromRGB(0, 255, 120)
-end)
-
--- 2. Hız Hilesi
-SpeedBtn.MouseButton1Click:Connect(function()
-    local char = Player.Character
-    if char and char:FindFirstChild("Humanoid") then
-        char.Humanoid.WalkSpeed = 24
-        SpeedBtn.Text = "Hız Artırıldı (24)"
+local EspBtn = createB
         SpeedBtn.TextColor3 = Color3.fromRGB(0, 255, 120)
     end
 end)
@@ -120,10 +92,7 @@ CoinFarmBtn.MouseButton1Click:Connect(function()
 end)
 
 -- 4. Silah Drop Bulma
-GunDropBtn.MouseButton1Click:Connect(function()
-    for _, obj in pairs(Workspace:GetDescendants()) do
-        if obj.Name == "GunDrop" and obj:IsA("BasePart") and Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
-            Player.Character.HumanoidRootPart.CFrame = obj.CFrame
+.CFrame = obj.CFrame
             GunDropBtn.Text = "Silah Alındı!"
             GunDropBtn.TextColor3 = Color3.fromRGB(0, 255, 120)
             break
